@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Case Studies — Vantage Ridge Technologies{% endblock %}
+{% block description %}Real, running systems built by Vantage Ridge Technologies — architecture, security controls, and outcomes.{% endblock %}
+{% block content %}
+  <section class="hero hero-compact">
+    <div class="wrap">
+      <h1>Case Studies</h1>
+      <p class="lede">
+        We're early-stage, so most of what's here today is self-initiated platform work —
+        built and run the same way we'd build for a client — plus our first real client
+        engagement. As more paid work lands, it's added here with the client's permission.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <div class="case-study">
+        <span class="tag">Internal platform engagement</span>
+        <h3>DevSecOps Bootcamp Platform</h3>
+        <div class="meta">Self-initiated production-grade platform, built and operated by Vantage Ridge Technologies · running at app.clevernews.org</div>
+
+        <dl>
+          <dt>Context</dt>
+          <dd>A Flask application deployed as a real, internet-facing production platform — used as our own proving ground for infrastructure and pipeline patterns before offering them to clients.</dd>
+
+          <dt>Problem</dt>
+          <dd>Demonstrate that infrastructure and pipeline decisions hold up under an actual security review, not just a local demo.</dd>
+
+          <dt>Architecture</dt>
+          <dd>
+            Flask app containerized and deployed on Amazon ECS Fargate, behind an Application
+            Load Balancer with ACM-issued TLS 1.3. Networking, compute, logging, and CI/CD
+            resources are all defined in modular Terraform (an AWS CDK implementation of the
+            same platform also exists as a parallel reference).
+          </dd>
+
+          <dt>Security</dt>
+          <dd>
+            AWS WAFv2 with three managed rule groups in front of the ALB; WAF logs streamed via
+            Kinesis Firehose to a KMS-encrypted S3 bucket. ECS tasks run with a read-only root
+            filesystem. Security groups are egress-restricted rather than default-open. VPC
+            flow logs and Container Insights provide network and runtime visibility. The CI/CD
+            pipeline runs OPA/Conftest policy checks against Terraform plans, plus tfsec and
+            Checkov for IaC scanning, and Bandit, pip-audit, and Trivy for application and
+            container scanning before anything deploys.
+          </dd>
+
+          <dt>Outcome</dt>
+          <dd>
+            A production platform with a defensible security posture end-to-end — network,
+            compute, pipeline, and logging — that now serves as the reference architecture we
+            bring into client engagements.
+          </dd>
+        </dl>
+
+        <p class="honesty-note">
+          Labeled honestly: this is our own internal platform, not client work. It's public and
+          inspectable — that's the point.
+        </p>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">Client engagement</span>
+        <h3>Self-Service Online Store for a Local Food Business</h3>
+        <div class="meta">Custom Web &amp; Application Development · Ontario, Canada</div>
+
+        <dl>
+          <dt>Context</dt>
+          <dd>A local foodstuff seller needed an online store — browse, cart, checkout — plus the ability to manage her own catalog without calling a developer for every change.</dd>
+
+          <dt>Architecture</dt>
+          <dd>
+            Flask application with a self-service admin backend (stock/quantity management,
+            product CRUD, delivery settings), session-based cart, and Stripe Checkout for
+            payment — webhook-verified, so payment status is never trusted from a redirect
+            alone.
+          </dd>
+
+          <dt>Security</dt>
+          <dd>
+            Prices always recomputed server-side at checkout (never trusted from the client),
+            CSRF protection throughout, hashed admin credentials, rate-limited login, Stripe
+            webhook signature verification.
+          </dd>
+
+          <dt>Outcome</dt>
+          <dd>Full test suite (34 tests) covering payment logic, auth, and tamper-resistance; Bandit and pip-audit clean before first deploy.</dd>
+        </dl>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">Internal tooling</span>
+        <h3>Meeting Transcription &amp; Summarization Automation</h3>
+        <div class="meta">Self-initiated AI automation project</div>
+
+        <dl>
+          <dt>Context</dt>
+          <dd>Manual note-taking during recurring meetings is slow and inconsistent.</dd>
+
+          <dt>Architecture</dt>
+          <dd>An automated pipeline that ingests meeting audio, produces a transcript, and generates a structured summary — built as a reusable internal tool.</dd>
+        </dl>
+
+        <p class="honesty-note">
+          Self-initiated tooling project, not a client deliverable.
+        </p>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

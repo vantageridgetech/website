@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Services — Vantage Ridge Technologies{% endblock %}
+{% block description %}Cloud infrastructure & migration, cost optimization, security & compliance, DevSecOps pipelines, custom app development, secure hosting, applied AI, and ongoing support — across AWS, Google Cloud, and Azure.{% endblock %}
+{% block content %}
+  <section class="hero hero-compact">
+    <div class="wrap">
+      <h1>Services</h1>
+      <p class="lede">An IT solutions hub, not a single-product shop — across AWS, Google Cloud, and Azure. Eight offerings, each one grounded in work we've actually built and run.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="case-study">
+        <span class="tag">01</span>
+        <h3>Cloud Infrastructure Setup &amp; Migration</h3>
+        <p>New environments built right the first time, or migrating off legacy/on-prem systems — on AWS, Google Cloud, or Azure, whichever fits.</p>
+        <ul>
+          <li>Multi-cloud network design: VPC/VNet segmentation, least-open security groups</li>
+          <li>Migration planning and execution with minimal downtime</li>
+          <li>Infrastructure as code from day one (Terraform, CDK) — no manual console changes</li>
+          <li>Multi-environment (dev/staging/prod) design, cost-aware from the start</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">02</span>
+        <h3>Cloud Cost Optimization</h3>
+        <p>Most cloud bills have real waste in them. We find it and fix it without touching what's actually needed.</p>
+        <ul>
+          <li>Right-sizing compute and storage, reserved/committed-use review</li>
+          <li>Idle and orphaned resource cleanup</li>
+          <li>Cost visibility dashboards and budget alerts</li>
+          <li>Architecture changes that reduce spend structurally, not just trim the edges</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">03</span>
+        <h3>Cloud Security &amp; Compliance</h3>
+        <p>Find out what an attacker or an auditor would find first — before they do. Practical, prioritized findings, not a scanner dump.</p>
+        <ul>
+          <li>Account security reviews: IAM, network exposure, logging gaps</li>
+          <li>IAM least-privilege audits and remediation</li>
+          <li>CIS Foundations Benchmark alignment (AWS, Azure, GCP)</li>
+          <li>WAF, threat-detection, and centralized logging setup</li>
+          <li>Written report with prioritized, actionable fixes</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">04</span>
+        <h3>CI/CD &amp; DevSecOps Pipelines</h3>
+        <p>Pipelines that catch problems before they ship — security scanning built into the path to production, not bolted on afterward.</p>
+        <ul>
+          <li>GitHub Actions or Jenkins pipeline design, build through deploy</li>
+          <li>SAST and dependency scanning (SCA)</li>
+          <li>Container image scanning and hardening</li>
+          <li>Policy-as-code guardrails for infrastructure changes</li>
+          <li>Secrets management and least-privilege deploy credentials</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">05</span>
+        <h3>Custom Web &amp; Application Development</h3>
+        <p>Real applications — authentication, databases, payments, admin backends — not just a static page with a contact form.</p>
+        <ul>
+          <li>Full-stack apps built to run in production, not a prototype</li>
+          <li>Secure by default: CSRF protection, hashed auth, input validation, tested</li>
+          <li>Payment integrations done right (server-side price recomputation, webhook-verified confirmation)</li>
+          <li>Deployed on the cloud platform that fits the client, not a one-size-fits-all default</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">06</span>
+        <h3>Secure Website Design &amp; Hosting</h3>
+        <p>A website for your business, hosted the way we'd host our own — not a drag-and-drop builder with no visibility into what's running.</p>
+        <ul>
+          <li>Static or server-rendered sites, deployed on the cloud of choice</li>
+          <li>TLS by default, WAF in front, CDN for speed</li>
+          <li>Infrastructure defined as code — reproducible, no vendor lock-in</li>
+          <li>Right-sized for a small-business budget, with room to grow</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">07</span>
+        <h3>Applied AI Automation &amp; Agents</h3>
+        <p>Practical automation using AI agents and models to remove repetitive manual work — including the assistant on this page.</p>
+        <ul>
+          <li>Agent-based workflow automation for internal operational tasks</li>
+          <li>Meeting transcription and summarization</li>
+          <li>Site/product AI assistants wired into real business context</li>
+          <li>Integration with existing tools rather than replacing them wholesale</li>
+        </ul>
+      </div>
+
+      <div class="case-study">
+        <span class="tag">08</span>
+        <h3>Ongoing Cloud &amp; IT Support</h3>
+        <p>For small teams without an in-house cloud engineer — a fractional resource for the infrastructure questions that come up between projects.</p>
+        <ul>
+          <li>Monitoring, alerting, and incident-response setup</li>
+          <li>Recurring cloud cost review</li>
+          <li>Ad-hoc advisory retainer for small in-house dev/ops teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap text-center">
+      <h2>Not sure which of these you need?</h2>
+      <p class="section-lede mx-auto">
+        Ask the assistant in the corner, or send a note — tell us what you're building and where it's stuck.
+      </p>
+      <a class="btn" href="{{ url_for('main.contact') }}">Get in touch</a>
+    </div>
+  </section>
+{% endblock %}

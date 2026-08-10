@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Vantage Ridge Technologies — Multi-Cloud IT Solutions Hub{% endblock %}
+{% block description %}Vantage Ridge Technologies: cloud infrastructure, cost optimization, security, DevSecOps, custom apps, and applied AI — across AWS, Google Cloud, and Azure.{% endblock %}
+{% block content %}
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Multi-cloud &middot; AWS &middot; Google Cloud &middot; Azure</span>
+      <h1>Your IT solutions hub for secure, well-run cloud infrastructure.</h1>
+      <p class="lede">
+        Vantage Ridge Technologies is an independent IT solutions provider — cloud
+        infrastructure, cost optimization, security, DevSecOps pipelines, custom apps, and
+        applied AI, across whichever cloud you're already on. One team to call instead of
+        five vendors, everything built to hold up under real security review.
+      </p>
+      <a class="btn" href="{{ url_for('main.contact') }}">Start a conversation</a>
+      <a class="btn secondary" href="{{ url_for('main.case_studies') }}">See the work</a>
+      <div class="cloud-strip">
+        <span class="cloud-chip"><strong>AWS</strong> — infrastructure, security, DevSecOps</span>
+        <span class="cloud-chip"><strong>Google Cloud</strong> — migration, cost, automation</span>
+        <span class="cloud-chip"><strong>Azure</strong> — infrastructure & identity</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="section-lede">Eight services, one bar for all of them: production-grade, security-reviewed, documented. Hover to pause.</p>
+      <div class="flip-stage">
+        <div class="flip-card" id="services-flip-card">
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__face--front"></div>
+            <div class="flip-card__face flip-card__face--back"></div>
+          </div>
+        </div>
+        <div class="flip-dots" id="flip-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Why Vantage Ridge</h2>
+      <p class="section-lede">Early-stage and honest about it — the platform work is real, self-initiated, and public.</p>
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Built, not borrowed</span>
+          <p class="text-dim-block">
+            Every case study links to a real, running system with a security posture you can
+            inspect: WAF, TLS, IAM least-privilege, scanned dependencies, logged and monitored.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag">Right-sized</span>
+          <p class="text-dim-block">
+            We work with small teams and early-stage companies who need infrastructure that's
+            secure and maintainable, not over-engineered for a scale they haven't reached yet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/services-flip.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Contact — Vantage Ridge Technologies{% endblock %}
+{% block description %}Get in touch with Vantage Ridge Technologies — send a message, or find us on LinkedIn and GitHub.{% endblock %}
+{% block content %}
+  <section class="hero hero-compact">
+    <div class="wrap">
+      <h1>Contact</h1>
+      <p class="lede">Founded by Enoch Adekanye. Early-stage, taking on first engagements now.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-2">
+      <div class="card">
+        <h3>Send a message</h3>
+        <form class="stacked" id="contact-form">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required maxlength="120">
+
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required maxlength="255">
+
+          <label for="cf-message">What are you working on?</label>
+          <textarea id="cf-message" name="message" required maxlength="5000"></textarea>
+
+          <p class="mt-md">
+            <button type="submit" class="btn" id="cf-submit">Send message</button>
+          </p>
+          <p class="form-status" id="cf-status" role="status"></p>
+        </form>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Enoch Adekanye</h3>
+          <p class="text-dim-block">
+            Founder &amp; Cloud/DevSecOps Consultant. Builds cloud infrastructure, CI/CD
+            pipelines, custom applications, and AI automation across AWS, Google Cloud, and
+            Azure — self-taught, hands-on, and focused on shipping things that hold up under
+            real security review.
+          </p>
+        </div>
+        <div class="card mt-lg">
+          <h3>Find us</h3>
+          <ul class="contact-list">
+            <li><span class="label">Email</span><a href="mailto:hello@vantageridgetech.com">hello@vantageridgetech.com</a></li>
+            <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/company/vantage-ridge-technologies" target="_blank" rel="noopener">Vantage Ridge Technologies</a></li>
+            <li><span class="label">GitHub (org)</span><a href="https://github.com/vantageridgetech" target="_blank" rel="noopener">github.com/vantageridgetech</a></li>
+            <li><span class="label">Founder</span><a href="https://linkedin.com/in/enoch-adekanye-9474042aa" target="_blank" rel="noopener">linkedin.com/in/enoch-adekanye-9474042aa</a></li>
+            <li><span class="label">YouTube</span><a href="https://youtube.com/@Techwithadenoch" target="_blank" rel="noopener">Tech with adenoch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/contact-form.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{% block title %}Vantage Ridge Technologies{% endblock %}</title>
+  <meta name="description" content="{% block description %}Vantage Ridge Technologies — a multi-cloud IT solutions consultancy: cloud infrastructure, security, DevSecOps, custom apps, and applied AI automation.{% endblock %}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="{{ url_for('main.index') }}">Vantage <span>Ridge</span> Technologies</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('main.index') }}" class="{{ 'active' if request.endpoint == 'main.index' }}">Home</a></li>
+        <li><a href="{{ url_for('main.services') }}" class="{{ 'active' if request.endpoint == 'main.services' }}">Services</a></li>
+        <li><a href="{{ url_for('main.case_studies') }}" class="{{ 'active' if request.endpoint == 'main.case_studies' }}">Case Studies</a></li>
+        <li><a href="{{ url_for('main.contact') }}" class="{{ 'active' if request.endpoint == 'main.contact' }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Vantage Ridge Technologies Inc.</span>
+      <span><a href="mailto:hello@vantageridgetech.com">hello@vantageridgetech.com</a></span>
+    </div>
+  </footer>
+
+  <!-- AI site assistant -->
+  <button id="chat-launcher" aria-label="Open chat assistant" aria-expanded="false" aria-controls="chat-panel">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 5h16v11H7l-3 3V5z" stroke="#06231f" stroke-width="1.8" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div id="chat-panel" role="dialog" aria-label="Vantage Ridge assistant">
+    <div class="chat-head">
+      <div>
+        <strong>Ask Vantage Ridge</strong>
+        <span>What can we do for you?</span>
+      </div>
+      <button id="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <form id="chat-form" class="chat-input-row">
+      <input id="chat-input" type="text" placeholder="Tell us what you're working on&hellip;" autocomplete="off" maxlength="2000">
+      <button type="submit" id="chat-send">Send</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/chat-widget.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
