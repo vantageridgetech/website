@@ -6,12 +6,12 @@ class BaseConfig:
     APP_ENV = os.getenv("APP_ENV", "local")
     SECRET_KEY = os.getenv("SECRET_KEY", "local-dev-only-not-a-real-secret")
 
-    MAIL_SERVER = os.getenv("MAIL_SERVER")
-    MAIL_PORT = int(os.getenv("MAIL_PORT", "587"))
-    MAIL_USE_TLS = os.getenv("MAIL_USE_TLS", "true").lower() == "true"
-    MAIL_USERNAME = os.getenv("MAIL_USERNAME")
-    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
-    MAIL_DEFAULT_SENDER = os.getenv("MAIL_DEFAULT_SENDER", MAIL_USERNAME)
+    # ZeptoMail (Zoho's transactional email API) — used instead of Mail Lite's mailbox
+    # SMTP, which turned out to need account-level access this app shouldn't hold anyway.
+    ZEPTOMAIL_API_KEY = os.getenv("ZEPTOMAIL_API_KEY")
+    ZEPTOMAIL_API_URL = os.getenv("ZEPTOMAIL_API_URL", "https://api.zeptomail.ca/v1.1/email")
+    ZEPTOMAIL_SENDER_EMAIL = os.getenv("ZEPTOMAIL_SENDER_EMAIL", "hello@vantageridgetech.com")
+    ZEPTOMAIL_SENDER_NAME = os.getenv("ZEPTOMAIL_SENDER_NAME", "Vantage Ridge Technologies")
     CONTACT_RECIPIENT_EMAIL = os.getenv("CONTACT_RECIPIENT_EMAIL", "hello@vantageridgetech.com")
 
     ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
@@ -35,6 +35,7 @@ class TestConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
     SECRET_KEY = "test-secret-key"
     ANTHROPIC_API_KEY = "test-key"
+    ZEPTOMAIL_API_KEY = "test-key"
 
 
 CONFIG_BY_NAME = {
