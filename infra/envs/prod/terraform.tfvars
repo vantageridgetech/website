@@ -9,4 +9,4 @@ domain_name = "vantageridgetech.com"
 github_repo   = "vantageridgetech/website"
 desired_count = 1
 
-container_image_tag = "7e7e214"
+container_image_tag = "e4923fe"
